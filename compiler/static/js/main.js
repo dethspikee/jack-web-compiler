@@ -2,9 +2,17 @@ const editorContainer = document.getElementById("editor");
 const uploadBtn = document.getElementById('id_file');
 
 
+// 5000000 bytes = 5MB
+const MAX_SIZE = 5000000;
+
+
 uploadBtn.addEventListener('change', function() {
-    let files = this.files;
-    showSelectedFiles(files);
+    let files = validateFiles(this.files);
+    if (files.length > 0) {
+        showSelectedFiles(files);
+    } else {
+        // 0 files passed file type check. Display error.
+    }
 });
 
 
@@ -23,3 +31,15 @@ const myCodeMirror = CodeMirror(editorContainer, {
     viewportMargin: Infinity,
     lineNumbers: true,
 });
+
+
+const validateFiles = (files) => {
+    let valid_files = [];
+    for (const file of files) {
+        if (!(file.size > MAX_SIZE)) {
+          valid_files.push(file);
+        }
+    }
+    console.log(valid_files);
+    return valid_files;
+};
