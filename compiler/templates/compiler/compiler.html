@@ -6,8 +6,9 @@
     </div>
     <div id="upload-form-container">
         <form method="POST" enctype="multipart/form-data">
-            <input type="file" id="actual-btn"/ hidden multiple>
-            <label for="actual-btn">Choose File(s)</label>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="upload!">
         </form>
     </div>
 </div>

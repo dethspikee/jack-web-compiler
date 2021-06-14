@@ -1,5 +1,5 @@
 const editorContainer = document.getElementById("editor");
-const uploadBtn = document.getElementById('actual-btn');
+const uploadBtn = document.getElementById('id_file');
 
 
 uploadBtn.addEventListener('change', function() {
