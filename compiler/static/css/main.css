@@ -19,12 +19,24 @@
 form {
     display: flex;
     flex-direction: column;
+    margin-bottom: 20%;
 }
 
 label {
   cursor: pointer;
   padding: 10px;
-  border: 1px solid black;
+  border: 1px solid #cacaca;
+  width: 100%;
   border-radius: 3px;
   text-align: center;
+  background: #f8f9fa;
+  transition: 0.2s all;
+}
+
+label:hover {
+    transform: translateY(-5px);
+}
+
+label:active {
+    transform: translateY(0);
 }
