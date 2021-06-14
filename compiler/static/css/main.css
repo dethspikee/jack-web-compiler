@@ -1,0 +1,30 @@
+.CodeMirror {
+    height: 100%;
+}
+
+#editor {
+    height: 500px;
+    width: 50%;
+    display: none;
+}
+
+#upload-form-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  text-align: center;
+}
