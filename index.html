@@ -11,7 +11,9 @@
         <script src="codemirror/lib/codemirror.js"></script>
         <script src="codemirror/mode/xml/xml.js"></script>
         <script> 
-            let myCodeMirror = CodeMirror(document.body);
+            let myCodeMirror = CodeMirror(document.body, {
+                mode: 'xml'
+            });
         </script>
     </body>
 </html>
