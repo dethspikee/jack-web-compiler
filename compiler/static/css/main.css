@@ -30,13 +30,32 @@ label {
   border-radius: 3px;
   text-align: center;
   background: #f8f9fa;
-  transition: 0.2s all;
+  transition: 0.4s all;
 }
 
 label:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
 }
 
 label:active {
     transform: translateY(0);
+}
+
+.uploadButton {
+    width: max-content;
+    margin: 1em auto;
+    padding: 5px 10px;
+    border: 1px solid green;
+    border-radius: 5px;
+    color: green;
+    background: white;
+    transition: 0.3s all;
+}
+
+.uploadButton:hover {
+    background: #d6f9d6c7;
+}
+
+.uploadButton:active {
+    transform: translateY(10px);
 }

@@ -18,10 +18,23 @@ uploadBtn.addEventListener('change', function() {
 
 const showSelectedFiles = (files) => {
     const form = document.querySelector('#upload-form-container form');
+    let submitFormButton = document.querySelector('.uploadButton');
+
     for (const file of files) {
         let span = document.createElement('span')
         span.textContent = file.name;
-        form.append(span);
+        if (submitFormButton) {
+            form.insertBefore(span, submitFormButton);
+        } else {
+            form.append(span);
+        }
+    }
+    if (!submitFormButton) {
+        let submitForm = document.createElement('input');
+        submitForm.type = 'submit';
+        submitForm.value = 'Upload';
+        submitForm.classList.add('uploadButton');
+        form.append(submitForm);
     }
 };
 
@@ -40,6 +53,5 @@ const validateFiles = (files) => {
           valid_files.push(file);
         }
     }
-    console.log(valid_files);
     return valid_files;
 };
