@@ -7,7 +7,7 @@ class UploadJackFileForm(forms.Form):
                         attrs={'hidden': True,
                                'multiple': True}
                     ),
-                label='Choose File(s)'
+                label='Upload File(s)'
             )
 
     def __init__(self, *args, **kwargs):
