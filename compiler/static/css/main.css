@@ -28,7 +28,7 @@
     height: 100%;
     width: 100%;
     cursor: pointer;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     transition: 0.2s all;
 }
 
@@ -48,7 +48,7 @@
 }
 
 #upload-form-container {
-    margin-top: 1.5em;
+    margin-top: 2em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -70,6 +70,7 @@ label {
     text-align: center;
     background: #f8f9fa;
     transition: 0.2s all;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 label:hover {
