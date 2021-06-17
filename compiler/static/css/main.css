@@ -10,14 +10,23 @@
     justify-content: space-between;
 }
 
+#editor-1-container,
+#editor-2-container {
+    width: 40%;
+    height: 65vh;
+    margin-top: 3em;
+    margin-left: 3em;
+    margin-right: 3em;
+}
+
+#editor-1-container {
+}
+
 #editor-1,
 #editor-2 {
     overflow-wrap: break-word;
-    margin-top: 2em;
-    height: 80vh;
-    width: 40%;
-    margin-left: 3em;
-    margin-right: 3em;
+    height: 100%;
+    width: 100%;
     cursor: pointer;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     transition: 0.2s all;
@@ -39,7 +48,7 @@
 }
 
 #upload-form-container {
-    height: 100vh;
+    margin-top: 1.5em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -60,7 +69,7 @@ label {
     border-radius: 3px;
     text-align: center;
     background: #f8f9fa;
-    transition: 0.4s all;
+    transition: 0.2s all;
 }
 
 label:hover {
@@ -79,7 +88,7 @@ label:active {
     border-radius: 5px;
     color: green;
     background: white;
-    transition: 0.3s all;
+    transition: 0.2s all;
 }
 
 .uploadButton:hover {

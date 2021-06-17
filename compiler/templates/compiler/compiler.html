@@ -2,17 +2,17 @@
 
 {% block content %}
 <div class="compiler-container">
-    <div id="editor-1" tabindex="0"></div>
-    <div id="editor-2" tabindex="0"></div>
-    <!--
-    <div id="upload-form-container">
-        <form method="POST" enctype="multipart/form-data">
-            {#
-            {% csrf_token %}
-            {{ form.as_p }}
-            #}
-        </form>
+    <div id="editor-1-container">
+        <div id="editor-1" tabindex="0"></div>
+        <div id="upload-form-container">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+            </form>
+        </div>
     </div>
-    -->
+    <div id="editor-2-container">
+        <div id="editor-2" tabindex="0"></div>
+    </div>
 </div>
 {% endblock %}
