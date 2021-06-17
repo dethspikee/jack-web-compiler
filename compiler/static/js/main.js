@@ -57,4 +57,9 @@ const myCodeMirror = CodeMirror(editorContainer1, {
     viewportMargin: Infinity,
     lineNumbers: true,
     lineWrapping: true,
+    theme: 'default',
+});
+
+editorContainer1.addEventListener('click', event => {
+
 });

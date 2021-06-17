@@ -1,11 +1,37 @@
 .CodeMirror {
     height: 100%;
+    width: 100%;
+    border-radius: 5px;
 }
 
-#editor {
-    height: 500px;
-    width: 50%;
-    display: none;
+.compiler-container {
+    display: flex;
+    flex-diretion: row;
+    justify-content: space-between;
+}
+
+#editor-1,
+#editor-2 {
+    overflow-wrap: break-word;
+    margin-top: 2em;
+    height: 80vh;
+    width: 40%;
+    margin-left: 3em;
+    margin-right: 3em;
+    cursor: pointer;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: 0.2s all;
+}
+
+#editor-1:hover {
+    transform: scale(1.02);
+}
+
+#editor-2 {
+}
+
+#editor-2:focus {
+    background: red !important;
 }
 
 #upload-form-container {
