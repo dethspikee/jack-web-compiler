@@ -1,11 +1,12 @@
-const editorContainer = document.getElementById("editor");
-const uploadBtn = document.getElementById('id_file');
+const editorContainer1 = document.getElementById("editor-1");
+// const uploadBtn = document.getElementById('id_file');
 
 
 // 5000000 bytes = 5MB
 const MAX_SIZE = 5000000;
 
 
+/*
 uploadBtn.addEventListener('change', function() {
     let files = validateFiles(this.files);
     if (files.length > 0) {
@@ -14,6 +15,7 @@ uploadBtn.addEventListener('change', function() {
         // 0 files passed file type check. Display error.
     }
 });
+*/
 
 
 const showSelectedFiles = (files) => {
@@ -39,13 +41,6 @@ const showSelectedFiles = (files) => {
 };
 
 
-const myCodeMirror = CodeMirror(editorContainer, {
-    mode: 'xml',
-    viewportMargin: Infinity,
-    lineNumbers: true,
-});
-
-
 const validateFiles = (files) => {
     let valid_files = [];
     for (const file of files) {
@@ -55,3 +50,11 @@ const validateFiles = (files) => {
     }
     return valid_files;
 };
+
+
+const myCodeMirror = CodeMirror(editorContainer1, {
+    mode: 'xml',
+    viewportMargin: Infinity,
+    lineNumbers: true,
+    lineWrapping: true,
+});
