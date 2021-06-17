@@ -60,6 +60,8 @@ const myCodeMirror = CodeMirror(editorContainer1, {
     theme: 'default',
 });
 
-editorContainer1.addEventListener('click', event => {
-
+editorContainer1.addEventListener('paste', (event) => {
+    let cursor = document.querySelector('.CodeMirror-cursors');
+    cursor.style.transform = `scale(${1/1.04})`;
+    cursor.style.transformOrigin = '0 0';
 });
