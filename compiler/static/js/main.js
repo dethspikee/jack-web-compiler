@@ -1,12 +1,20 @@
 const editorContainer1 = document.getElementById("editor-1");
-// const uploadBtn = document.getElementById('id_file');
+const uploadBtn = document.getElementById('id_file');
+const selectTag = document.getElementById('action-list');
+const submitActionBtn = document.getElementById('submit-action');
 
 
 // 5000000 bytes = 5MB
 const MAX_SIZE = 5000000;
 
 
-/*
+selectTag.addEventListener('change', (event) => {
+    const select = event.target;
+    const index = select.selectedIndex;
+    const value = select.options[index].value;
+});
+
+
 uploadBtn.addEventListener('change', function() {
     let files = validateFiles(this.files);
     if (files.length > 0) {
@@ -15,7 +23,6 @@ uploadBtn.addEventListener('change', function() {
         // 0 files passed file type check. Display error.
     }
 });
-*/
 
 
 const showSelectedFiles = (files) => {
