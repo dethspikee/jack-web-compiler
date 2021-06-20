@@ -73,11 +73,24 @@ label {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-label:hover {
+#submit-action {
+    margin-top: 1em;
+    padding: 5px;
+    border: 1px solid #cacaca;
+    width: 100%;
+    border-radius: 3px;
+    text-align: center;
+    background: #f8f9fa;
+    transition: 0.2s all;
+}
+
+label:hover,
+#submit-action:hover {
     transform: translateY(-3px);
 }
 
-label:active {
+label:active,
+#submit-action:active {
     transform: translateY(0);
 }
 
@@ -98,4 +111,9 @@ label:active {
 
 .uploadButton:active {
     transform: translateY(10px);
+}
+
+#action-select {
+    width: 8%;
+    margin: auto 0;
 }
