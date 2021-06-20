@@ -12,6 +12,8 @@ selectTag.addEventListener('change', (event) => {
     const select = event.target;
     const index = select.selectedIndex;
     const value = select.options[index].value;
+
+    submitActionBtn.value = value;
 });
 
 
