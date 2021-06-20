@@ -7,9 +7,19 @@
         <div id="upload-form-container">
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ form.file_field.label_tag }}
+                {{ form.file_field }}
             </form>
         </div>
+    </div>
+    <div id="action-select">
+        <form>
+            <select name="action" id="action-list" class="form-select">
+                <option value="Compile">Compile</option>
+                <option value="Parse">Parse</option>
+                <input id="submit-action" type="submit" value="Compile">
+            </select>
+        </form>
     </div>
     <div id="editor-2-container">
         <div id="editor-2" tabindex="0"></div>
