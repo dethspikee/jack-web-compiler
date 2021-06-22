@@ -19,6 +19,11 @@ const myCodeMirror = CodeMirror(editorContainer1, {
 });
 
 
+/*
+ * Handle file(s) form submit event. Prevent default and
+ * prepare all files to be uploaded. Once the response
+ * is received and parsed append it to the codemirror instance
+ */
 fileUploadForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     let formData = new FormData();
@@ -44,6 +49,9 @@ fileUploadForm.addEventListener('submit', async (event) => {
 });
 
 
+/*
+ * Listen for a change on the select tag
+ */
 selectTag.addEventListener('change', (event) => {
     const select = event.target;
     const index = select.selectedIndex;
@@ -53,6 +61,9 @@ selectTag.addEventListener('change', (event) => {
 });
 
 
+/*
+ * Listen for a change on the file input
+ */
 uploadBtn.addEventListener('change', function() {
     clearPreviousFiles();
     let files = validateFiles(this.files);
@@ -64,6 +75,10 @@ uploadBtn.addEventListener('change', function() {
 });
 
 
+/*
+ * Find all file 'ready to be uploaded'
+ * and remove them from the page
+ */
 const clearPreviousFiles = () => {
     const files = document.querySelectorAll('.filename');
     for (const file of files) {
@@ -72,6 +87,10 @@ const clearPreviousFiles = () => {
 };
 
 
+/*
+ * Once the file(s) are validated;
+ * show them on the page
+ */
 const showSelectedFiles = (files) => {
     const form = document.querySelector('#upload-form-container form');
     let submitFormButton = document.querySelector('.uploadButton');
@@ -96,6 +115,11 @@ const showSelectedFiles = (files) => {
 };
 
 
+/*
+ * Validate files to see if they're
+ * valid .jack files and their size
+ * is smaller than MAX_SIZE
+ */
 const validateFiles = (files) => {
     let valid_files = [];
     for (const file of files) {
