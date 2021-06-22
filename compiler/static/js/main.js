@@ -1,4 +1,5 @@
-const editorContainer1 = document.getElementById("editor-1");
+const editor1 = document.getElementById("editor-1");
+const editor2 = document.getElementById("editor-2");
 const uploadBtn = document.getElementById('id_file_field');
 const selectTag = document.getElementById('action-list');
 const submitActionBtn = document.getElementById('submit-action');
@@ -10,8 +11,16 @@ const csrftoken = Cookies.get('csrftoken');
 const MAX_SIZE = 5000000;
 
 
-const myCodeMirror = CodeMirror(editorContainer1, {
+const leftCodeMirror = CodeMirror(editor1, {
     mode: 'text/plain',
+    viewportMargin: Infinity,
+    lineNumbers: true,
+    lineWrapping: true,
+    theme: 'default',
+});
+
+const rightCodeMirror = CodeMirror(editor2, {
+    mode: 'xml',
     viewportMargin: Infinity,
     lineNumbers: true,
     lineWrapping: true,
@@ -42,9 +51,9 @@ fileUploadForm.addEventListener('submit', async (event) => {
     });
     if (response.ok) {
         const responseJson = await response.json();
-        myCodeMirror.setValue(responseJson.content);
-        myCodeMirror.focus();
-        myCodeMirror.setCursor(myCodeMirror.lineCount(), 0);
+        leftCodeMirror.setValue(responseJson.content);
+        leftCodeMirror.focus();
+        leftCodeMirror.setCursor(leftCodeMirror.lineCount(), 0);
         
         // clean up input and filenames - change to function later!
         let uploadBtn = document.querySelector('.uploadButton');
