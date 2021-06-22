@@ -5,7 +5,7 @@
     <div id="editor-1-container">
         <div id="editor-1" tabindex="0"></div>
         <div id="upload-form-container">
-            <form method="POST" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data" id="file-upload">
                 {% csrf_token %}
                 {{ form.file_field.label_tag }}
                 {{ form.file_field }}
