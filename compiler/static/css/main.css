@@ -118,3 +118,17 @@ label:active,
     width: 8%;
     margin: auto 0;
 }
+
+.fade-out {
+    animation-name: fadeout-animation;
+    animation-duration: 0.5s;
+    animation-direction: forwards;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeout-animation {
+    100% {
+        transform: translateX(500px);
+        opacity: 0;
+    }
+}

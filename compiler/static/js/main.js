@@ -45,6 +45,16 @@ fileUploadForm.addEventListener('submit', async (event) => {
         myCodeMirror.setValue(responseJson.content);
         myCodeMirror.focus();
         myCodeMirror.setCursor(myCodeMirror.lineCount(), 0);
+        
+        // clean up input and filenames - change to function later!
+        let uploadBtn = document.querySelector('.uploadButton');
+        uploadBtn.value = 'Done!';
+        setTimeout(() => {
+            uploadBtn.classList.add('fade-out');
+            uploadBtn.addEventListener('animationend', (event) => {
+                uploadBtn.remove();
+            });
+        }, 1000);
     }
 });
 
