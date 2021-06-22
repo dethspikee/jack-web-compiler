@@ -30,13 +30,15 @@
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     transition: 0.2s all;
+    opacity: 0.5;
 }
 
 #editor-1:hover {
-   /*transform: scale(1.04);*/
+    opacity: 1;
 }
 
-#editor-2 {
+#editor-2:hover {
+    opacity: 1;
 }
 
 #editor-2:focus {
