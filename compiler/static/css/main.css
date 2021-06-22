@@ -59,7 +59,6 @@
 form {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20%;
 }
 
 label {
@@ -126,9 +125,26 @@ label:active,
     animation-fill-mode: forwards;
 }
 
+.disappear {
+    animation-name: disappear-animation;
+    animation-duration: 0.5s;
+    animation-direction: forwards;
+    animation-fill-mode: forwards;
+}
+
 @keyframes fadeout-animation {
     100% {
         transform: translateX(500px);
+        opacity: 0;
+    }
+}
+
+@keyframes disappear-animation {
+    80% {
+        height: 50%;
+    }
+    100% {
+        height: 20%;
         opacity: 0;
     }
 }

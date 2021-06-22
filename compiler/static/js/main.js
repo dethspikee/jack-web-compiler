@@ -48,6 +48,7 @@ fileUploadForm.addEventListener('submit', async (event) => {
         
         // clean up input and filenames - change to function later!
         let uploadBtn = document.querySelector('.uploadButton');
+        clearPreviousFiles();
         uploadBtn.value = 'Done!';
         setTimeout(() => {
             uploadBtn.classList.add('fade-out');
@@ -92,7 +93,10 @@ uploadBtn.addEventListener('change', function() {
 const clearPreviousFiles = () => {
     const files = document.querySelectorAll('.filename');
     for (const file of files) {
-        file.remove();
+        file.classList.add('disappear');
+        file.addEventListener('animationend', (event) => {
+            file.remove();
+        });
     }
 };
 
