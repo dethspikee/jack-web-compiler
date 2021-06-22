@@ -6,5 +6,5 @@ from . import views
 
 app_name = 'compiler'
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.file_uploads, name='file_uploads'),
 ]
