@@ -1,12 +1,45 @@
 const editorContainer1 = document.getElementById("editor-1");
-const uploadBtn = document.getElementById('id_file');
+const uploadBtn = document.getElementById('id_file_field');
 const selectTag = document.getElementById('action-list');
 const submitActionBtn = document.getElementById('submit-action');
+const fileUploadForm = document.getElementById('file-upload');
+const csrftoken = Cookies.get('csrftoken');
 
 
 // 5000000 bytes = 5MB
 const MAX_SIZE = 5000000;
 
+const myCodeMirror = CodeMirror(editorContainer1, {
+    mode: 'text/plain',
+    viewportMargin: Infinity,
+    lineNumbers: true,
+    lineWrapping: true,
+    theme: 'default',
+});
+
+fileUploadForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    let formData = new FormData();
+    const fileField = document.getElementById('id_file_field');
+    let files = validateFiles(fileField.files);
+    for (let i = 0; i < files.length; i++) {
+        formData.append('file_field', files[i]);
+    }
+    const response = await fetch('/', {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': csrftoken,
+        },
+        body: formData,
+        mode: 'same-origin',
+    });
+    if (response.ok) {
+        const responseJson = await response.json();
+        myCodeMirror.setValue(responseJson.content);
+        myCodeMirror.focus();
+        myCodeMirror.setCursor(myCodeMirror.lineCount(), 0);
+    }
+});
 
 selectTag.addEventListener('change', (event) => {
     const select = event.target;
@@ -53,24 +86,16 @@ const showSelectedFiles = (files) => {
 const validateFiles = (files) => {
     let valid_files = [];
     for (const file of files) {
-        if (!(file.size > MAX_SIZE)) {
-          valid_files.push(file);
+        let extension = file.name.split('.').pop();
+        if (extension !== 'jack') {
+            // incorrect file extension was chosen show error
+            continue;
         }
+        if (file.size > MAX_SIZE) {
+            // file size too big
+            continue;
+        }
+        valid_files.push(file);
     }
     return valid_files;
 };
-
-
-const myCodeMirror = CodeMirror(editorContainer1, {
-    mode: 'xml',
-    viewportMargin: Infinity,
-    lineNumbers: true,
-    lineWrapping: true,
-    theme: 'default',
-});
-
-editorContainer1.addEventListener('paste', (event) => {
-    let cursor = document.querySelector('.CodeMirror-cursors');
-    cursor.style.transform = `scale(${1/1.04})`;
-    cursor.style.transformOrigin = '0 0';
-});
