@@ -21,6 +21,7 @@ const leftCodeMirror = CodeMirror(editor1, {
 
 const rightCodeMirror = CodeMirror(editor2, {
     mode: 'xml',
+    readOnly: 'nocursor',
     viewportMargin: Infinity,
     lineNumbers: true,
     lineWrapping: true,
