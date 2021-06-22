@@ -140,11 +140,17 @@ label:active,
 }
 
 @keyframes disappear-animation {
-    80% {
+    20% {
         height: 50%;
+        opacity: 0.5;
     }
+
+    50% {
+        height: 20%:
+    }
+
     100% {
-        height: 20%;
+        height: 0;
         opacity: 0;
     }
 }
