@@ -9,6 +9,7 @@ const csrftoken = Cookies.get('csrftoken');
 // 5000000 bytes = 5MB
 const MAX_SIZE = 5000000;
 
+
 const myCodeMirror = CodeMirror(editorContainer1, {
     mode: 'text/plain',
     viewportMargin: Infinity,
@@ -16,6 +17,7 @@ const myCodeMirror = CodeMirror(editorContainer1, {
     lineWrapping: true,
     theme: 'default',
 });
+
 
 fileUploadForm.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -40,6 +42,7 @@ fileUploadForm.addEventListener('submit', async (event) => {
         myCodeMirror.setCursor(myCodeMirror.lineCount(), 0);
     }
 });
+
 
 selectTag.addEventListener('change', (event) => {
     const select = event.target;
