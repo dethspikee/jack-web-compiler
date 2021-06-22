@@ -54,6 +54,7 @@ selectTag.addEventListener('change', (event) => {
 
 
 uploadBtn.addEventListener('change', function() {
+    clearPreviousFiles();
     let files = validateFiles(this.files);
     if (files.length > 0) {
         showSelectedFiles(files);
@@ -63,12 +64,21 @@ uploadBtn.addEventListener('change', function() {
 });
 
 
+const clearPreviousFiles = () => {
+    const files = document.querySelectorAll('.filename');
+    for (const file of files) {
+        file.remove();
+    }
+};
+
+
 const showSelectedFiles = (files) => {
     const form = document.querySelector('#upload-form-container form');
     let submitFormButton = document.querySelector('.uploadButton');
 
     for (const file of files) {
         let span = document.createElement('span')
+        span.setAttribute('class', 'filename');
         span.textContent = file.name;
         if (submitFormButton) {
             form.insertBefore(span, submitFormButton);
@@ -89,6 +99,9 @@ const showSelectedFiles = (files) => {
 const validateFiles = (files) => {
     let valid_files = [];
     for (const file of files) {
+        if (valid_files.includes(file)) {
+            continue;
+        }
         let extension = file.name.split('.').pop();
         if (extension !== 'jack') {
             // incorrect file extension was chosen show error
