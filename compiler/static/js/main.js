@@ -6,7 +6,7 @@ const fileUploadForm = document.getElementById('file-upload');
 const csrftoken = Cookies.get('csrftoken');
 
 
-// 5000000 bytes = 5MB
+// SET MAX SIZE LIMIT FOR EACH FILE
 const MAX_SIZE = 5000000;
 
 
