@@ -34,7 +34,15 @@ actionForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     action = submitActionBtn.value;
     body = leftCodeMirror.getValue();
-    console.log(action, body);
+    if (!body) {
+        console.log('empty body: error');
+        editor1.style.border = '1.5px solid #ff000070';
+        setTimeout(() => {
+            editor1.style.border = '1px solid lightgrey';
+        }, 1000);
+    } else {
+        console.log(action, body);
+    }
     //request_parse_or_compile(action);
 });
 
