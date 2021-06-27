@@ -4,6 +4,7 @@ const uploadBtn = document.getElementById('id_file_field');
 const selectTag = document.getElementById('action-list');
 const submitActionBtn = document.getElementById('submit-action');
 const fileUploadForm = document.getElementById('file-upload');
+const actionForm = document.getElementById('action-form');
 const csrftoken = Cookies.get('csrftoken');
 
 
@@ -27,6 +28,26 @@ const rightCodeMirror = CodeMirror(editor2, {
     lineWrapping: true,
     theme: 'default',
 });
+
+
+actionForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    action = submitActionBtn.value;
+    body = leftCodeMirror.getValue();
+    console.log(action, body);
+    //request_parse_or_compile(action);
+});
+
+
+const request_parse_or_compile = async (action) => {
+    const response = await fetch('/compile', {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': csrftoken,
+        },
+        mode: 'same-origin',
+    });
+};
 
 
 /*
