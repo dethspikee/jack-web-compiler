@@ -25,3 +25,11 @@ def file_uploads(request):
         form = UploadJackFileForm()
     return render(request,
             'compiler/compiler.html', {'form': form})
+
+
+def compile(request):
+    request_body = json.loads(request.body)
+    action = request_body.get('action')
+    jack_source = request_body.get('body')
+    print(jack_source)
+
