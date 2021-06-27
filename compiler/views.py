@@ -7,6 +7,9 @@ from django.http import JsonResponse
 from .forms import UploadJackFileForm
 
 
+from .compiler_source_code.JackTokenizer import JackTokenizer
+
+
 def file_uploads(request):
     if request.method == 'POST':
         print(request.FILES)
@@ -28,8 +31,11 @@ def file_uploads(request):
 
 
 def compile(request):
-    request_body = json.loads(request.body)
-    action = request_body.get('action')
-    jack_source = request_body.get('body')
-    print(jack_source)
+    body = json.loads(request.body)
+    jack_source = body.get('body')
+    action = body.get('action')
+    if action == 'Tokenize':
+        tokenizer = JackTokenizer(jack_source)
+        tokens = list(tokenizer.tokens)
+        return JsonResponse(tokens, safe=False)
 
