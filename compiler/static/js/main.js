@@ -41,20 +41,34 @@ actionForm.addEventListener('submit', async (event) => {
             editor1.style.border = '1px solid lightgrey';
         }, 1000);
     } else {
-        console.log(action, body);
+        compile(action, body);
     }
     //request_parse_or_compile(action);
 });
 
 
-const request_parse_or_compile = async (action) => {
-    const response = await fetch('/compile', {
+const compile = async (action, body) => {
+    const response = await fetch('/compile/', {
         method: 'POST',
         headers: {
             'X-CSRFToken': csrftoken,
+            'Content-Type': 'application/json',
         },
+        body: JSON.stringify({
+            'action': action,
+            'body': body,
+        }),
         mode: 'same-origin',
     });
+
+    if (response.ok) {
+        const responseJson = await response.json();
+        let tokens = '';
+        for (const token of responseJson) {
+            tokens += `<token> ${token} </token>` + '\n';
+        }
+        rightCodeMirror.setValue(tokens);
+    }
 };
 
 
